@@ -1,0 +1,82 @@
+{
+ "monitors": [
+  {
+   "id": "settled_needs_independent_route",
+   "severity": "MEDIUM",
+   "detector_type": "settled_independent_route",
+   "watch": "No value may be declared SETTLED without an independent route (a second method, a published table, or an external code cross-check).",
+   "detector_args": {}
+  },
+  {
+   "id": "cg_optimality_forbidden",
+   "severity": "LOW",
+   "detector_type": "forbidden_predicate",
+   "watch": "No active doc may assert Conway–Guy sets are optimal in general (contradicts cg_family.optimal_at='n<=10 only': posted a(12)<=1157 < u(12)=1164, VR-2).",
+   "detector_args": {
+    "patterns": [
+     "Conway[–-]Guy (?:sets? (?:are|is)|construction is) optimal",
+     "CG(?:-\\d+)? is optimal",
+     "A005318 (?:is|gives) (?:the )?optim"
+    ],
+    "exclude": [
+     "\\bNOT\\b", "\\bnot\\b", "refuted", "n\\s?<=\\s?10", "n ?≤ ?10", "only", "heuristic", "false"
+    ],
+    "window": 60,
+    "contradicts": "cg_family.optimal_at = n<=10 only (VR-2)",
+    "scan_files": ["QUEUE.md", "README.md"]
+   }
+  },
+  {
+   "id": "frontier_exact_claim_needs_exhaustion",
+   "severity": "MEDIUM",
+   "detector_type": "forbidden_predicate",
+   "watch": "An exact claim a(n)=v at the open frontier (n>=11) is a candidate-to-read unless an exhaustion receipt is in the same window (the negative side of an exact optimum rests on search completeness — VR-1 §5).",
+   "detector_args": {
+    "patterns": [
+     "a\\(1[1-9]\\)\\s*=\\s*\\d+"
+    ],
+    "exclude": [
+     "exhaustiv", "<=", ">=", "≤", "≥", "bound", "window", "witness", "conjectur", "posted", "if\\b", "would"
+    ],
+    "window": 90,
+    "contradicts": "a(11) is OPEN, window [462, 594] (VR-2)",
+    "scan_files": ["QUEUE.md", "README.md"]
+   }
+  },
+  {
+   "id": "record_claim_inflation",
+   "severity": "LOW",
+   "detector_type": "forbidden_predicate",
+   "watch": "No doc may claim to beat the Bohman asymptotic record from a single-n construction (beating 0.22002·2^n at one n does not improve the family record).",
+   "detector_args": {
+    "patterns": [
+     "beats? (?:the )?Bohman (?:bound|record)",
+     "improves? (?:on )?0\\.22002"
+    ],
+    "exclude": [
+     "\\bnot\\b", "\\bNOT\\b", "does not", "single-n", "at one n", "family", "guard", "inflation"
+    ],
+    "window": 70,
+    "contradicts": "bohman_bound is an ASYMPTOTIC family record (VR-1 §5)",
+    "scan_files": []
+   }
+  },
+  {
+   "id": "corpus_completeness_overclaim",
+   "severity": "LOW",
+   "detector_type": "completeness_claim",
+   "watch": "No doc may declare a search-clean/corpus-clean state on a string-level sweep alone; label completeness claims at their grounding.",
+   "detector_args": {
+    "exclude": ["\\bnot\\b"],
+    "window": 40
+   }
+  },
+  {
+   "id": "n11_frontier_open",
+   "severity": "LOW",
+   "detector_type": "claim_pending",
+   "watch": "The a(11) frontier is open — unmet while corpus claims about a(11) remain in open/predicted strata; the closing VR flips this by settling the claim vocabulary.",
+   "detector_args": { "entity": "a(11)" }
+  }
+ ]
+}

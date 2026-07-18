@@ -1,0 +1,5 @@
+{
+  "corpus_dir": "corpus",
+  "seed_dir": "domains/erdos1",
+  "data_dir": "data/rag"
+}

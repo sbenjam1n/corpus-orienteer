@@ -1,0 +1,39 @@
+{
+ "objects": [
+  {
+   "id": "C_1",
+   "type": "comet",
+   "title": "C_1, short-period comet, period 12 days",
+   "primary": "C_1",
+   "aliases": [
+    "C_1",
+    "C1"
+   ],
+   "dropped": false,
+   "note": "First survey target. body_class=comet (VR-1); the asteroid classification is refuted."
+  },
+  {
+   "id": "C_2",
+   "type": "comet",
+   "title": "C_2, second survey comet, period 20 days (seed)",
+   "primary": "C_2",
+   "aliases": [
+    "C_2",
+    "C2"
+   ],
+   "dropped": false,
+   "note": "Seeded period predates the VR-10..12 observation series."
+  },
+  {
+   "id": "OBS_A",
+   "type": "observatory",
+   "title": "OBS_A, the ridge observatory",
+   "primary": "OBS_A",
+   "aliases": [
+    "OBS_A"
+   ],
+   "dropped": false,
+   "note": ""
+  }
+ ]
+}

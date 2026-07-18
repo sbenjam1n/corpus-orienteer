@@ -1,0 +1,41 @@
+{
+ "monitors": [
+  {
+   "id": "c1_forbidden_class",
+   "severity": "LOW",
+   "detector_type": "forbidden_predicate",
+   "watch": "No active doc may assert the refuted classification 'C_1 is an asteroid' (contradicts body_class=comet, VR-1).",
+   "detector_args": {
+    "patterns": [
+     "C_1 is an asteroid"
+    ],
+    "exclude": [
+     "\\bNOT\\b",
+     "mislabel"
+    ],
+    "window": 40,
+    "contradicts": "C_1.body_class=comet (VR-1)",
+    "scan_files": []
+   }
+  },
+  {
+   "id": "catalog_completeness_overclaim",
+   "severity": "LOW",
+   "detector_type": "completeness_claim",
+   "watch": "No doc may declare the catalog corpus-clean on a string-level sweep alone.",
+   "detector_args": {
+    "exclude": [
+     "\\bnot\\b"
+    ],
+    "window": 40
+   }
+  },
+  {
+   "id": "settled_needs_independent_route",
+   "severity": "MEDIUM",
+   "detector_type": "settled_independent_route",
+   "watch": "No value may be SETTLED without an independent route.",
+   "detector_args": {}
+  }
+ ]
+}

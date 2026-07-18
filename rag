@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# rag — root CLI for this deployment of the onto/audit RAG engine.
+#
+# Resolves the deployment's corpus/seeds/data directories from ragconfig.json
+# (repo root) and exports them as the engine's RAG_* env vars, then dispatches
+# to the engine scripts in scripts/rag/. Env vars already set in the caller's
+# environment take precedence over ragconfig.json — the config file only fills
+# in what is unset, so one-off overrides keep working:
+#
+#   RAG_CORPUS_DIR=scripts/rag/tests/fixture/corpus ./rag rebuild
+#
+# Usage:
+#   ./rag rebuild [--embed] [--doctest]   full build pipeline (index → ontology → coverage → brief)
+#   ./rag query <mode> [args…]            any query.py mode (search, page, monitors, brief, …)
+#   ./rag orient <doc…> [--out slug]      plan-scoped orientation artifact
+#   ./rag brief                           warm-start audit brief (alias for query brief)
+#   ./rag grounding                       grounding_check.py
+#   ./rag coverage                        self-coverage audit (alias for query coverage)
+#   ./rag monitors                        monitor states (alias for query monitors)
+#   ./rag viz <links|graph|arc> [VR-N]    render relationship graphs
+#   ./rag test                            engine unit + fixture e2e suite
+#   ./rag doctor                          conformance check of the configured corpus
+#   ./rag config                          print the resolved configuration
+
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CFG="$ROOT/ragconfig.json"
+
+resolve() {  # resolve <json-key> <fallback-relative-path>
+    python3 - "$CFG" "$1" "$2" <<'PY'
+import json, sys, os
+cfg_path, key, fallback = sys.argv[1], sys.argv[2], sys.argv[3]
+try:
+    v = json.load(open(cfg_path)).get(key) or fallback
+except (FileNotFoundError, json.JSONDecodeError):
+    v = fallback
+print(v if os.path.isabs(v) else os.path.join(os.path.dirname(cfg_path), v))
+PY
+}
+
+export RAG_CORPUS_DIR="${RAG_CORPUS_DIR:-$(resolve corpus_dir corpus)}"
+export RAG_SEED_DIR="${RAG_SEED_DIR:-$(resolve seed_dir scripts/rag)}"
+export RAG_DATA_DIR="${RAG_DATA_DIR:-$(resolve data_dir data/rag)}"
+
+cd "$ROOT"
+cmd="${1:-help}"; shift || true
+case "$cmd" in
+    rebuild)          bash scripts/rag/rebuild.sh "$@" ;;
+    query)            python3 scripts/rag/query.py "$@" ;;
+    orient)           python3 scripts/rag/orient.py "$@" ;;
+    brief)            python3 scripts/rag/query.py brief "$@" ;;
+    grounding)        python3 scripts/rag/grounding_check.py "$@" ;;
+    coverage)         python3 scripts/rag/query.py coverage "$@" ;;
+    monitors)         python3 scripts/rag/query.py monitors "$@" ;;
+    viz)              python3 scripts/rag/query.py viz "$@" ;;
+    record-session)   python3 scripts/rag/record_session.py "$@" ;;
+    test)             python3 -m unittest discover -s scripts/rag/tests "$@" ;;
+    doctor)           python3 scripts/rag/index_vrs.py && python3 scripts/rag/query.py stats ;;
+    config)           echo "RAG_CORPUS_DIR=$RAG_CORPUS_DIR"
+                      echo "RAG_SEED_DIR=$RAG_SEED_DIR"
+                      echo "RAG_DATA_DIR=$RAG_DATA_DIR" ;;
+    help|--help|-h)   sed -n '2,25p' "$0" | sed 's/^# \{0,1\}//' ;;
+    *)                python3 scripts/rag/query.py "$cmd" "$@" ;;  # bare query-mode shorthand
+esac

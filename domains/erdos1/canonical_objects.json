@@ -1,0 +1,147 @@
+{
+ "objects": [
+  {
+   "id": "erdos1",
+   "type": "problem",
+   "title": "Erd\u0151s distinct subset sums problem (erdosproblems.com #1, $500)",
+   "primary": "distinct subset sums",
+   "aliases": [
+    "distinct subset sums",
+    "sum-distinct",
+    "Erd\u0151s #1",
+    "erdosproblems.com/1"
+   ],
+   "dropped": false,
+   "note": "OPEN; 'cannot be resolved with a finite computation' (erdosproblems.com, fetched 2026-07-16). Computation informs the a(n) table, records, and constants \u2014 never the conjecture itself."
+  },
+  {
+   "id": "A276661",
+   "type": "oeis",
+   "title": "A276661 \u2014 minimal largest element of an n-element sum-distinct set (the a(n) table)",
+   "primary": "A276661",
+   "aliases": [
+    "A276661",
+    "a-table"
+   ],
+   "dropped": false,
+   "note": "The program's primary ladder. Exact through a(10)=309 (VR-2)."
+  },
+  {
+   "id": "A005318",
+   "type": "oeis",
+   "title": "A005318 \u2014 Conway\u2013Guy sequence u(n) (maxima of the CG sum-distinct sets)",
+   "primary": "A005318",
+   "aliases": [
+    "A005318",
+    "Conway\u2013Guy sequence",
+    "Conway-Guy sequence"
+   ],
+   "dropped": false,
+   "note": "u(0)=0, u(1)=1, u(k+1)=2u(k)\u2212u(k\u2212round(sqrt(2k))). Generator: arms/conway_guy.py, calibrated against 14 published terms."
+  },
+  {
+   "id": "cg_family",
+   "type": "construction",
+   "title": "Conway\u2013Guy sets {u(n)\u2212u(j) : j<n} \u2014 sum-distinct for all n (Bohman 1996)",
+   "primary": "Conway\u2013Guy set",
+   "aliases": [
+    "Conway\u2013Guy set",
+    "Conway-Guy set",
+    "CG set"
+   ],
+   "dropped": false,
+   "note": "Sum-distinctness is a THEOREM (Bohman 1996), certificate-verified here only for n <= 30 (bitset ceiling). NOT optimal at n=12,13 (VR-2) \u2014 optimality of CG at general n is a refuted heuristic."
+  },
+  {
+   "id": "a8",
+   "type": "optval",
+   "title": "a(8) \u2014 minimal max element, n=8",
+   "primary": "a(8)",
+   "aliases": [
+    "a(8)"
+   ],
+   "dropped": false,
+   "note": "Exact: 84 (Lunnon 1988; reproduced exhaustively in VR-3)."
+  },
+  {
+   "id": "a9",
+   "type": "optval",
+   "title": "a(9) \u2014 minimal max element, n=9",
+   "primary": "a(9)",
+   "aliases": [
+    "a(9)"
+   ],
+   "dropped": false,
+   "note": "Exact: 161 (Grossman; witness-verified in VR-3)."
+  },
+  {
+   "id": "a10",
+   "type": "optval",
+   "title": "a(10) \u2014 minimal max element, n=10",
+   "primary": "a(10)",
+   "aliases": [
+    "a(10)"
+   ],
+   "dropped": false,
+   "note": "Exact: 309 (Dyson, OEIS A276661, Oct 2025, published code; witness-verified in VR-3). The value VR-1 initially missed \u2014 see AUDIT-1/VR-2."
+  },
+  {
+   "id": "a11",
+   "type": "optval",
+   "title": "a(11) \u2014 minimal max element, n=11 \u2014 THE LIVE FRONTIER",
+   "primary": "a(11)",
+   "aliases": [
+    "a(11)"
+   ],
+   "dropped": false,
+   "note": "OPEN window [462, 594]: lower binom(11,5) (DFX 2021), upper u(11)=594 (CG-11 witness, verified VR-3). Campaign: plans/P2_frontier_n11.md."
+  },
+  {
+   "id": "a12",
+   "type": "optval",
+   "title": "a(12) \u2014 minimal max element, n=12",
+   "primary": "a(12)",
+   "aliases": [
+    "a(12)"
+   ],
+   "dropped": false,
+   "note": "Open; upper bound 1157 < u(12)=1164 \u2014 posted set certificate-verified here (VR-5); refutes CG-optimality at n=12. Window [924, 1157]."
+  },
+  {
+   "id": "a13",
+   "type": "optval",
+   "title": "a(13) \u2014 minimal max element, n=13",
+   "primary": "a(13)",
+   "aliases": [
+    "a(13)"
+   ],
+   "dropped": false,
+   "note": "Open; upper bound 2249 < u(13)=2284 \u2014 posted set certificate-verified here (VR-5). Window [1716, 2249]."
+  },
+  {
+   "id": "dfx_bound",
+   "type": "bound",
+   "title": "Dubroff\u2013Fox\u2013Xu lower bound: a(n) >= binom(n, floor(n/2))",
+   "primary": "DFX bound",
+   "aliases": [
+    "DFX bound",
+    "Dubroff\u2013Fox\u2013Xu",
+    "binomial lower bound"
+   ],
+   "dropped": false,
+   "note": "arXiv:2006.12988 (2021). The engine's own arms use only the weaker self-contained doubling bound for exhaustion floors; DFX is cited context (VR-1 \u00a74)."
+  },
+  {
+   "id": "bohman_bound",
+   "type": "bound",
+   "title": "Bohman construction record: max element <= 0.22002\u00b72^n asymptotically",
+   "primary": "Bohman bound",
+   "aliases": [
+    "Bohman bound",
+    "0.22002"
+   ],
+   "dropped": false,
+   "note": "Bohman 1998, unbeaten since. Beating it at one n does NOT improve the asymptotic family record (VR-1 \u00a75 claim-inflation guard)."
+  }
+ ]
+}

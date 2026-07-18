@@ -1,0 +1,1 @@
+{"arm": "exhaustive", "n": 8, "scan_from": 32, "prunes": ["P1", "P2"], "budget_s": 540.0, "status": "exact", "a_n": 84, "witness": [40, 60, 71, 77, 80, 82, 83, 84], "note": "infeasible exhaustively for all max in [32,83]; witness at 84", "nodes": 121754429, "elapsed_s": 284.846}

@@ -1,0 +1,76 @@
+{
+ "entity_families": [
+  {
+   "pattern": "\\bVR-(\\d+)\\b",
+   "template": "VR-{1}"
+  },
+  {
+   "pattern": "\\bAUDIT-(\\d+)\\b",
+   "template": "AUDIT-{1}"
+  },
+  {
+   "pattern": "\\b(mass|tail length)\\b",
+   "template": "{1}"
+  },
+  {
+   "pattern": "\\b(papers/[\\w/]+\\.md)\\b",
+   "template": "{1}"
+  }
+ ],
+ "supersession_patterns": [
+  {
+   "pattern": "\\bcorrects?\\s+VR-(\\d+)\\b",
+   "relation": "corrects"
+  },
+  {
+   "pattern": "\\bper\\s+VR-(\\d+)\\b",
+   "relation": "references"
+  }
+ ],
+ "reference_relations": [
+  "references"
+ ],
+ "correction_relations": [
+  "corrects"
+ ],
+ "quantities": [
+  {
+   "name": "mass",
+   "value_pattern": "\\b(mass)\\s*=\\s*(\\d+)",
+   "key_group": 1,
+   "key_literal": null,
+   "val_group": 2,
+   "bound": null
+  },
+  {
+   "name": "tail",
+   "value_pattern": "\\b(tail length)\\s*=\\s*(\\d+)",
+   "key_group": 1,
+   "key_literal": null,
+   "val_group": 2,
+   "bound": null
+  }
+ ],
+ "type_schema": {
+  "vr_ref": {
+   "display": "VR ref",
+   "match": "VR-\\d+",
+   "valid": "VR-\\d+"
+  },
+  "audit_ref": {
+   "display": "AUDIT ref",
+   "match": "AUDIT-\\d+",
+   "valid": "AUDIT-\\d+"
+  },
+  "quantity": {
+   "display": "quantity",
+   "match": "(?:mass|tail length)(?:=\\d+)?",
+   "valid": "(?:mass|tail length)(?:=\\d+)?"
+  },
+  "paper": {
+   "display": "paper file",
+   "match": "papers/[\\w/]+\\.md",
+   "valid": "papers/[\\w/]+\\.md"
+  }
+ }
+}
