@@ -1,0 +1,95 @@
+{
+  "_doc": "DOMAIN VOCABULARY for the Erdős distinct-subset-sums program (erdosproblems.com #1, OEIS A276661). The engine is domain-agnostic; this file + the four seeds encode the program. {n} in a template = regex group n. Conventions: a(n) = minimal largest element of an n-element sum-distinct set; u(n) = Conway–Guy sequence A005318; CG-n = the n-element Conway–Guy set; exact values are written 'a(n) = v', bounds 'a(n) <= v' / 'a(n) >= v' (ASCII, greppable).",
+  "doc_id": { "primary": "VR", "audit": "AUDIT" },
+  "entity_families": [
+    { "pattern": "\\bVR-(\\d+)\\b", "template": "VR-{1}" },
+    { "pattern": "\\bAUDIT-(\\d+)\\b", "template": "AUDIT-{1}" },
+    { "pattern": "\\b(a\\(\\d{1,2}\\))\\s*=\\s*(\\d+)", "template": "{1}={2}" },
+    { "pattern": "\\b(a\\(\\d{1,2}\\))", "template": "{1}" },
+    { "pattern": "\\b(u\\(\\d{1,2}\\))", "template": "{1}" },
+    { "pattern": "\\b(A\\d{6})\\b", "template": "{1}" },
+    { "pattern": "\\b(CG-\\d{1,2})\\b", "template": "{1}" },
+    { "pattern": "\\b(binom\\(\\d{1,2},\\s?\\d{1,2}\\))", "template": "{1}" },
+    { "pattern": "\\b(arms/[\\w]+\\.py)\\b", "template": "{1}" },
+    { "pattern": "\\b(plans/[\\w]+\\.md)\\b", "template": "{1}" },
+    { "pattern": "\\b(results/[\\w/]+\\.(?:json|log|txt))\\b", "template": "{1}" },
+    { "pattern": "§(\\d+(?:\\.\\d+)*[a-z]?)", "template": "§{1}" }
+  ],
+  "supersession_patterns": [
+    { "pattern": "\\[CORRECTED\\s+(?:by\\s+|per\\s+)?VR-(\\d+)\\]", "relation": "corrected_by" },
+    { "pattern": "\\[CORRECTED\\s+(?:by\\s+|per\\s+)?AUDIT-(\\d+)\\]", "relation": "corrected_by_audit" },
+    { "pattern": "\\[RETRACTED(?:\\s+(?:by\\s+)?VR-(\\d+))?\\]", "relation": "retracted" },
+    { "pattern": "\\[SUPERSEDED\\s+(?:by\\s+)?VR-(\\d+)\\]", "relation": "superseded_by" },
+    { "pattern": "\\bcorrects?\\s+VR-(\\d+)\\b", "relation": "corrects" },
+    { "pattern": "\\bcorrecting\\s+VR-(\\d+)\\b", "relation": "corrects" },
+    { "pattern": "\\bsupersedes?\\s+VR-(\\d+)\\b", "relation": "supersedes" },
+    { "pattern": "\\bretract(?:s|ed)\\s+VR-(\\d+)\\b", "relation": "retracts" },
+    { "pattern": "\\brefutes?\\s+VR-(\\d+)\\b", "relation": "refutes" },
+    { "pattern": "\\bcontradicts?\\s+VR-(\\d+)\\b", "relation": "refutes" },
+    { "pattern": "\\bimproves?\\s+(?:on\\s+)?VR-(\\d+)\\b", "relation": "improves" },
+    { "pattern": "\\bamend(?:s|ed|ing)?\\s+VR-(\\d+)\\b", "relation": "amends" },
+    { "pattern": "\\bper\\s+VR-(\\d+)\\b", "relation": "references" },
+    { "pattern": "\\bfrom\\s+VR-(\\d+)\\b", "relation": "references" },
+    { "pattern": "\\bsee\\s+VR-(\\d+)\\b", "relation": "references" },
+    { "pattern": "\\b(?:re-?)?confirms\\s+VR-(\\d+)\\b", "relation": "corroborates" },
+    { "pattern": "\\breproduces\\s+VR-(\\d+)\\b", "relation": "corroborates" },
+    { "pattern": "\\bmatches\\s+VR-(\\d+)\\b", "relation": "corroborates" },
+    { "pattern": "\\bcloses\\s+AUDIT-(\\d+)\\b", "relation": "closes_audit" },
+    { "pattern": "\\bcloses\\s+VR-(\\d+)\\b", "relation": "closes" }
+  ],
+  "reference_relations": ["closes", "closes_audit", "corroborates", "references"],
+  "correction_relations": ["amends", "corrected_by", "corrected_by_audit", "corrects", "improves", "refutes", "retracts", "supersedes"],
+  "quantities": [
+    {
+      "name": "a_exact",
+      "value_pattern": "(a\\(\\d{1,2}\\))\\s*=\\s*(\\d+)",
+      "key_group": 1,
+      "key_literal": null,
+      "val_group": 2,
+      "bound": [0, 1000000000]
+    },
+    {
+      "name": "nodes",
+      "value_pattern": "\\bnodes\\s*=\\s*(\\d+)",
+      "key_group": null,
+      "key_literal": "nodes",
+      "val_group": 1,
+      "bound": null
+    }
+  ],
+  "type_schema": {
+    "vr_ref":   { "display": "VR cross-reference",    "match": "VR-\\d+",    "valid": "VR-\\d+" },
+    "audit_ref":{ "display": "AUDIT cross-reference", "match": "AUDIT-\\d+", "valid": "AUDIT-\\d+" },
+    "optval":   { "display": "exact-optimum value a(n)", "match": "a\\(\\d+\\)(?:=\\d+)?", "valid": "a\\(\\d{1,2}\\)(?:=\\d{1,9})?" },
+    "cg_val":   { "display": "Conway–Guy value u(n)",  "match": "u\\(\\d+\\)", "valid": "u\\(\\d{1,2}\\)" },
+    "oeis":     { "display": "OEIS sequence",          "match": "A\\d{6}",    "valid": "A\\d{6}" },
+    "cg_set":   { "display": "Conway–Guy set",         "match": "CG-\\d+",    "valid": "CG-\\d{1,2}" },
+    "binom":    { "display": "binomial bound value",   "match": "binom\\(\\d+,\\s?\\d+\\)", "valid": "binom\\(\\d{1,2},\\s?\\d{1,2}\\)" },
+    "arm":      { "display": "compute arm",            "match": "arms/[\\w]+\\.py", "valid": "arms/[\\w]+\\.py" },
+    "plan":     { "display": "execution plan",         "match": "plans/[\\w]+\\.md", "valid": "plans/[\\w]+\\.md" },
+    "artifact": { "display": "result artifact",        "match": "results/[\\w/]+\\.(?:json|log|txt)", "valid": "results/[\\w/]+\\.(?:json|log|txt)" },
+    "section":  { "display": "document section",       "match": "§\\d+(?:\\.\\d+)*[a-z]?", "valid": "§\\d+(?:\\.\\d+)*[a-z]?" },
+    "quantity": { "display": "tracked quantity",       "match": "(?:nodes)(?:=\\d+)?", "valid": "(?:nodes)(?:=\\d+)?" }
+  },
+  "drift_value_patterns": {
+    "value": "=\\s*(\\d+)",
+    "upper": "(?:<=|≤)\\s*(\\d+)",
+    "lower": "(?:>=|≥)\\s*(\\d+)"
+  },
+  "method_indicators": [
+    { "pattern": "arms/exhaustive\\.py|branch-and-bound|exhaustive M-scan", "id": "exhaustive_bnb" },
+    { "pattern": "arms/conway_guy\\.py|Conway[–-]Guy generator", "id": "cg_generator" },
+    { "pattern": "arms/verify_set\\.py|bitset certificate", "id": "bitset_certificate" },
+    { "pattern": "CP-SAT|ILP feasibility", "id": "ilp_sat" },
+    { "pattern": "simulated annealing|local search", "id": "local_search" }
+  ],
+  "method_lifecycle": [
+    { "pattern": "\\bproposed\\b|\\bkickoff\\b", "state": "proposed" },
+    { "pattern": "\\bimplemented\\b|\\bbuilt\\b|\\bported\\b", "state": "implemented" },
+    { "pattern": "\\bcalibrat(?:ed|ion)\\b", "state": "calibrated" },
+    { "pattern": "\\bvalidated\\b|\\bagreement with the published table\\b|\\bcertificate-verified\\b", "state": "validated" },
+    { "pattern": "structural dead-end|produced a wrong (?:answer|value)|\\bmisreported\\b", "state": "failed" },
+    { "pattern": "\\bdiagnos(?:ed|is)\\b", "state": "diagnosed" }
+  ],
+  "grounding": { "source_root": "arms" }
+}

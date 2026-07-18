@@ -1,0 +1,9 @@
+{
+  "_doc": "Sphinx-doctest-style grounding (axis-5 borrow, docs/CONCEPT_COVERAGE_IMPLEMENTATION_INDEX): each entry RE-RUNS a fast, self-checking reproducer and asserts it PRODUCES its cited value — the 'script supports the number' upgrade to grounding_check.py's 'script exists'. OPT-IN / on-demand only: NOT wired into rebuild.sh (re-running PARI/GP is heavy + environment-dependent). Run: python3 scripts/rag/doctest_grounding.py  or  query.py doctest. Add only FAST, self-contained, deterministic reproducers here.",
+  "checks": [
+    {"claim": "headline quick-verify (T1 eps alternation + T9 point on E(stem_1))", "cmd": "gp -q < scripts/verify/quick_headline.gp", "expect": "VERIFICATION PASS", "timeout": 90},
+    {"claim": "ERRATA E1 / det H = 64.345 (sign-convention invariant)", "cmd": "gp -q < scripts/verify/sign_convention.gp", "expect": "64.34502009946055076", "timeout": 60},
+    {"claim": "T14 height ratio 3x + det H = 64.345", "cmd": "gp -q < scripts/verify/stark_t9_t14.gp", "expect": "det H = 64.34502009946055076", "timeout": 60},
+    {"claim": "|Sha(E^161/Q)|=16=(Z/4)^2 verdict replays 17/17 from lib/", "cmd": "sh lib/e161_verdict/verify_e161_verdict.sh", "expect": "PASS=17", "timeout": 180}
+  ]
+}

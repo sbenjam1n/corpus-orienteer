@@ -1,0 +1,10 @@
+{
+ "links": [
+  { "source": "A276661",  "relation": "table_of",        "target": "erdos1",   "vr_id": "VR-1" },
+  { "source": "A005318",  "relation": "upper_bounds",    "target": "A276661",  "vr_id": "VR-1" },
+  { "source": "cg_family","relation": "generated_by",    "target": "A005318",  "vr_id": "VR-1" },
+  { "source": "dfx_bound","relation": "lower_bounds",    "target": "A276661",  "vr_id": "VR-1" },
+  { "source": "bohman_bound", "relation": "asymptotic_record_for", "target": "erdos1", "vr_id": "VR-1" },
+  { "source": "a11",      "relation": "frontier_of",     "target": "A276661",  "vr_id": "VR-2" }
+ ]
+}

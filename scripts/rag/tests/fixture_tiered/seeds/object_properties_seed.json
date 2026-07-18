@@ -1,0 +1,12 @@
+{
+ "properties": [
+  {
+   "subject": "blob",
+   "prop": "mass",
+   "value": "12",
+   "vr_id": "VR-1",
+   "stratum": "verified",
+   "source": "VR-1 \u00a71"
+  }
+ ]
+}

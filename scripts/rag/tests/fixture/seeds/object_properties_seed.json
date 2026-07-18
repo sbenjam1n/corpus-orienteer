@@ -1,0 +1,36 @@
+{
+ "properties": [
+  {
+   "subject": "C_1",
+   "prop": "period",
+   "value": "12",
+   "vr_id": "VR-1",
+   "stratum": "verified",
+   "source": "VR-1 \u00a71"
+  },
+  {
+   "subject": "C_1",
+   "prop": "body_class",
+   "value": "comet",
+   "vr_id": "VR-1",
+   "stratum": "verified",
+   "source": "VR-1 \u00a71"
+  },
+  {
+   "subject": "C_2",
+   "prop": "period",
+   "value": "20",
+   "vr_id": "VR-10",
+   "stratum": "predicted",
+   "source": "pre-survey ephemeris"
+  },
+  {
+   "subject": "OBS_A",
+   "prop": "site",
+   "value": "ridge",
+   "vr_id": "VR-1",
+   "stratum": "verified",
+   "source": "VR-1 \u00a71"
+  }
+ ]
+}

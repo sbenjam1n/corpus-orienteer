@@ -1,0 +1,8 @@
+# Engine build outputs — regenerated deterministically from the corpus by `./rag rebuild`.
+data/rag/
+__pycache__/
+*.pyc
+# Local vector store + downloaded ONNX model (optional --embed layer)
+chroma_db/
+model/
+wiki/corpus-orienteer/

@@ -1,0 +1,44 @@
+{
+ "_doc": "P6 M1 tier declarations for the demo deployment. vr = the investigation corpus (chunk-indexed, receipts). plans/channels are REGISTERED (resolvable, authority-tagged) but not chunk-indexed until their parsers land (P6 M2+). derived = engine outputs; never a source (generalized self-consumption guard). wiki/corpus-orienteer (the OpenWiki OKF pages) is derived: emitted by adapters/openwiki/emit_okf.py, never re-ingested.",
+ "tiers": [
+  {
+   "id": "vr",
+   "roots": [
+    "corpus"
+   ],
+   "contract": "vr",
+   "authority": 3,
+   "citable_as_receipt": true
+  },
+  {
+   "id": "plans",
+   "roots": [
+    "plans"
+   ],
+   "contract": "living",
+   "authority": 1,
+   "citable_as_receipt": false
+  },
+  {
+   "id": "channels",
+   "roots": [
+    "QUEUE.md",
+    "README.md"
+   ],
+   "contract": "channel",
+   "authority": 1,
+   "citable_as_receipt": false
+  },
+  {
+   "id": "derived",
+   "roots": [
+    "data/rag",
+    "wiki/corpus-orienteer"
+   ],
+   "contract": "vr",
+   "indexed": false,
+   "authority": 0,
+   "citable_as_receipt": false
+  }
+ ]
+}

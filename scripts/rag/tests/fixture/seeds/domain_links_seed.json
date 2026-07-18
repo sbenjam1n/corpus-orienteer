@@ -1,0 +1,16 @@
+{
+ "links": [
+  {
+   "source": "C_1",
+   "relation": "observed_from",
+   "target": "OBS_A",
+   "vr_id": "VR-1"
+  },
+  {
+   "source": "C_2",
+   "relation": "observed_from",
+   "target": "OBS_A",
+   "vr_id": "VR-10"
+  }
+ ]
+}

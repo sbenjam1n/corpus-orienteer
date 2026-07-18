@@ -1,0 +1,196 @@
+{
+ "n": 9,
+ "completed": {
+  "126": {
+   "nodes": 15107632,
+   "elapsed_s": 4.612,
+   "status": "infeasible"
+  },
+  "127": {
+   "nodes": 18275220,
+   "elapsed_s": 5.939,
+   "status": "infeasible"
+  },
+  "128": {
+   "nodes": 22867887,
+   "elapsed_s": 8.495,
+   "status": "infeasible"
+  },
+  "129": {
+   "nodes": 27036893,
+   "elapsed_s": 10.971,
+   "status": "infeasible"
+  },
+  "130": {
+   "nodes": 33724182,
+   "elapsed_s": 13.813,
+   "status": "infeasible"
+  },
+  "131": {
+   "nodes": 39491349,
+   "elapsed_s": 16.801,
+   "status": "infeasible"
+  },
+  "132": {
+   "nodes": 48721679,
+   "elapsed_s": 21.7,
+   "status": "infeasible"
+  },
+  "133": {
+   "nodes": 56253209,
+   "elapsed_s": 26.137,
+   "status": "infeasible"
+  },
+  "134": {
+   "nodes": 69237335,
+   "elapsed_s": 33.064,
+   "status": "infeasible"
+  },
+  "135": {
+   "nodes": 78204549,
+   "elapsed_s": 40.312,
+   "status": "infeasible"
+  },
+  "136": {
+   "nodes": 97005800,
+   "elapsed_s": 51.739,
+   "status": "infeasible"
+  },
+  "137": {
+   "nodes": 107635976,
+   "elapsed_s": 58.309,
+   "status": "infeasible"
+  },
+  "138": {
+   "nodes": 130552712,
+   "elapsed_s": 73.042,
+   "status": "infeasible"
+  },
+  "139": {
+   "nodes": 144917408,
+   "elapsed_s": 82.588,
+   "status": "infeasible"
+  },
+  "140": {
+   "nodes": 178034042,
+   "elapsed_s": 103.907,
+   "status": "infeasible"
+  },
+  "141": {
+   "nodes": 190761250,
+   "elapsed_s": 113.276,
+   "status": "infeasible"
+  },
+  "142": {
+   "nodes": 233389219,
+   "elapsed_s": 148.261,
+   "status": "infeasible"
+  },
+  "161": {
+   "status": "witness",
+   "nodes": 8,
+   "witness": [
+    77,
+    117,
+    137,
+    148,
+    154,
+    157,
+    159,
+    160,
+    161
+   ],
+   "elapsed_s": 0.002
+  },
+  "157": {
+   "status": "infeasible",
+   "nodes": 1225780754,
+   "elapsed_s": 539.711
+  },
+  "158": {
+   "status": "infeasible",
+   "nodes": 1460045043,
+   "elapsed_s": 643.503
+  },
+  "159": {
+   "status": "infeasible",
+   "nodes": 1469222457,
+   "elapsed_s": 657.647
+  },
+  "160": {
+   "status": "infeasible",
+   "nodes": 1794996349,
+   "elapsed_s": 798.577
+  },
+  "156": {
+   "status": "infeasible",
+   "nodes": 1199663742,
+   "elapsed_s": 519.793
+  },
+  "154": {
+   "status": "infeasible",
+   "nodes": 975572105,
+   "elapsed_s": 417.276
+  },
+  "155": {
+   "status": "infeasible",
+   "nodes": 1005375793,
+   "elapsed_s": 436.687
+  },
+  "153": {
+   "status": "infeasible",
+   "nodes": 810155986,
+   "elapsed_s": 346.929
+  },
+  "149": {
+   "status": "infeasible",
+   "nodes": 524522812,
+   "elapsed_s": 218.967
+  },
+  "150": {
+   "status": "infeasible",
+   "nodes": 625907496,
+   "elapsed_s": 261.704
+  },
+  "151": {
+   "status": "infeasible",
+   "nodes": 657213102,
+   "elapsed_s": 278.892
+  },
+  "152": {
+   "status": "infeasible",
+   "nodes": 800972253,
+   "elapsed_s": 340.049
+  },
+  "148": {
+   "status": "infeasible",
+   "nodes": 506011695,
+   "elapsed_s": 207.656
+  },
+  "147": {
+   "status": "infeasible",
+   "nodes": 410871672,
+   "elapsed_s": 166.767
+  },
+  "146": {
+   "status": "infeasible",
+   "nodes": 392435439,
+   "elapsed_s": 156.381
+  },
+  "145": {
+   "status": "infeasible",
+   "nodes": 324562186,
+   "elapsed_s": 127.605
+  },
+  "143": {
+   "status": "infeasible",
+   "nodes": 250852241,
+   "elapsed_s": 94.913
+  },
+  "144": {
+   "status": "infeasible",
+   "nodes": 305423323,
+   "elapsed_s": 117.79
+  }
+ }
+}

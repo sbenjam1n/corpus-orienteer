@@ -1,0 +1,11 @@
+{
+ "monitors": [
+  {
+   "id": "settled_needs_independent_route",
+   "severity": "MEDIUM",
+   "detector_type": "settled_independent_route",
+   "watch": "No SETTLED without an independent route.",
+   "detector_args": {}
+  }
+ ]
+}

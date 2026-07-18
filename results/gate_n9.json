@@ -1,0 +1,47 @@
+{
+ "arm": "gate_parallel",
+ "engine": "c",
+ "n": 9,
+ "workers": 4,
+ "floor": {
+  "kind": "dfx",
+  "value": 126,
+  "provenance": "binom(n,n//2): Dubroff-Fox-Xu arXiv:2006.12988"
+ },
+ "prunes": [
+  "P1",
+  "P2",
+  "P3",
+  "P4",
+  "P5"
+ ],
+ "p4_verified_table": {
+  "1": 1,
+  "2": 2,
+  "3": 4,
+  "4": 7,
+  "5": 13,
+  "6": 24,
+  "7": 44,
+  "8": 84
+ },
+ "ceiling": 161,
+ "ceiling_witness": [
+  77,
+  117,
+  137,
+  148,
+  154,
+  157,
+  159,
+  160,
+  161
+ ],
+ "rungs_exhausted": 35,
+ "rungs_pending": [],
+ "total_nodes": 16230800798,
+ "elapsed_s": 544.421,
+ "status": "exact",
+ "a_n": 161,
+ "note": "all M in [126,160] exhausted infeasible (floor = DFX theorem); witness at 161"
+}

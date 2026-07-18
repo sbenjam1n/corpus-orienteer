@@ -1,0 +1,15 @@
+{
+ "objects": [
+  {
+   "id": "blob",
+   "type": "object",
+   "title": "the blob",
+   "primary": "blob",
+   "aliases": [
+    "blob"
+   ],
+   "dropped": false,
+   "note": "fixture object"
+  }
+ ]
+}

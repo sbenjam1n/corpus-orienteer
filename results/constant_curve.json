@@ -1,0 +1,406 @@
+{
+ "rows": [
+  {
+   "n": 1,
+   "best_known_max": "1",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "1",
+   "c_den": "2",
+   "c_float": 0.5,
+   "dfx_floor_float": 0.5
+  },
+  {
+   "n": 2,
+   "best_known_max": "2",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "1",
+   "c_den": "2",
+   "c_float": 0.5,
+   "dfx_floor_float": 0.5
+  },
+  {
+   "n": 3,
+   "best_known_max": "4",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "1",
+   "c_den": "2",
+   "c_float": 0.5,
+   "dfx_floor_float": 0.375
+  },
+  {
+   "n": 4,
+   "best_known_max": "7",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "7",
+   "c_den": "16",
+   "c_float": 0.4375,
+   "dfx_floor_float": 0.375
+  },
+  {
+   "n": 5,
+   "best_known_max": "13",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "13",
+   "c_den": "32",
+   "c_float": 0.40625,
+   "dfx_floor_float": 0.3125
+  },
+  {
+   "n": 6,
+   "best_known_max": "24",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "3",
+   "c_den": "8",
+   "c_float": 0.375,
+   "dfx_floor_float": 0.3125
+  },
+  {
+   "n": 7,
+   "best_known_max": "44",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "11",
+   "c_den": "32",
+   "c_float": 0.34375,
+   "dfx_floor_float": 0.2734375
+  },
+  {
+   "n": 8,
+   "best_known_max": "84",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "21",
+   "c_den": "64",
+   "c_float": 0.328125,
+   "dfx_floor_float": 0.2734375
+  },
+  {
+   "n": 9,
+   "best_known_max": "161",
+   "kind": "exact",
+   "source": "own re-derivation (VR-3/VR-4)",
+   "c_num": "161",
+   "c_den": "512",
+   "c_float": 0.314453125,
+   "dfx_floor_float": 0.24609375
+  },
+  {
+   "n": 10,
+   "best_known_max": "309",
+   "kind": "exact",
+   "source": "Dyson 2025 exhaustive (external); witness + uniqueness cross-checked, VR-5",
+   "c_num": "309",
+   "c_den": "1024",
+   "c_float": 0.3017578125,
+   "dfx_floor_float": 0.24609375
+  },
+  {
+   "n": 11,
+   "best_known_max": "594",
+   "kind": "upper_bound",
+   "source": "CG-11 witness, VR-3",
+   "c_num": "297",
+   "c_den": "1024",
+   "c_float": 0.2900390625,
+   "dfx_floor_float": 0.2255859375
+  },
+  {
+   "n": 12,
+   "best_known_max": "1157",
+   "kind": "upper_bound",
+   "source": "posted set certified, VR-5",
+   "c_num": "1157",
+   "c_den": "4096",
+   "c_float": 0.282470703125,
+   "dfx_floor_float": 0.2255859375
+  },
+  {
+   "n": 13,
+   "best_known_max": "2249",
+   "kind": "upper_bound",
+   "source": "posted set certified, VR-5",
+   "c_num": "2249",
+   "c_den": "8192",
+   "c_float": 0.2745361328125,
+   "dfx_floor_float": 0.20947265625
+  },
+  {
+   "n": 14,
+   "best_known_max": "4484",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "1121",
+   "c_den": "4096",
+   "c_float": 0.273681640625,
+   "dfx_floor_float": 0.20947265625
+  },
+  {
+   "n": 15,
+   "best_known_max": "8807",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "8807",
+   "c_den": "32768",
+   "c_float": 0.268768310546875,
+   "dfx_floor_float": 0.196380615234375
+  },
+  {
+   "n": 16,
+   "best_known_max": "17305",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "17305",
+   "c_den": "65536",
+   "c_float": 0.2640533447265625,
+   "dfx_floor_float": 0.196380615234375
+  },
+  {
+   "n": 17,
+   "best_known_max": "34301",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "34301",
+   "c_den": "131072",
+   "c_float": 0.26169586181640625,
+   "dfx_floor_float": 0.1854705810546875
+  },
+  {
+   "n": 18,
+   "best_known_max": "68008",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "8501",
+   "c_den": "32768",
+   "c_float": 0.259429931640625,
+   "dfx_floor_float": 0.1854705810546875
+  },
+  {
+   "n": 19,
+   "best_known_max": "134852",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "33713",
+   "c_den": "131072",
+   "c_float": 0.25720977783203125,
+   "dfx_floor_float": 0.17619705200195312
+  },
+  {
+   "n": 20,
+   "best_known_max": "267420",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "66855",
+   "c_den": "262144",
+   "c_float": 0.2550315856933594,
+   "dfx_floor_float": 0.17619705200195312
+  },
+  {
+   "n": 21,
+   "best_known_max": "530356",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "132589",
+   "c_den": "524288",
+   "c_float": 0.25289344787597656,
+   "dfx_floor_float": 0.16818809509277344
+  },
+  {
+   "n": 22,
+   "best_known_max": "1051905",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "1051905",
+   "c_den": "4194304",
+   "c_float": 0.2507936954498291,
+   "dfx_floor_float": 0.16818809509277344
+  },
+  {
+   "n": 23,
+   "best_known_max": "2095003",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "2095003",
+   "c_den": "8388608",
+   "c_float": 0.24974381923675537,
+   "dfx_floor_float": 0.1611802577972412
+  },
+  {
+   "n": 24,
+   "best_known_max": "4172701",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "4172701",
+   "c_den": "16777216",
+   "c_float": 0.24871236085891724,
+   "dfx_floor_float": 0.1611802577972412
+  },
+  {
+   "n": 25,
+   "best_known_max": "8311101",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "8311101",
+   "c_den": "33554432",
+   "c_float": 0.2476901113986969,
+   "dfx_floor_float": 0.15498101711273193
+  },
+  {
+   "n": 26,
+   "best_known_max": "16554194",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "8277097",
+   "c_den": "33554432",
+   "c_float": 0.2466767132282257,
+   "dfx_floor_float": 0.15498101711273193
+  },
+  {
+   "n": 27,
+   "best_known_max": "32973536",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "1030423",
+   "c_den": "4194304",
+   "c_float": 0.24567198753356934,
+   "dfx_floor_float": 0.14944598078727722
+  },
+  {
+   "n": 28,
+   "best_known_max": "65679652",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "16419913",
+   "c_den": "67108864",
+   "c_float": 0.24467577040195465,
+   "dfx_floor_float": 0.14944598078727722
+  },
+  {
+   "n": 29,
+   "best_known_max": "130828948",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "32707237",
+   "c_den": "134217728",
+   "c_float": 0.24368790537118912,
+   "dfx_floor_float": 0.14446444809436798
+  },
+  {
+   "n": 30,
+   "best_known_max": "261127540",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "65281885",
+   "c_den": "268435456",
+   "c_float": 0.24319397285580635,
+   "dfx_floor_float": 0.14446444809436798
+  },
+  {
+   "n": 31,
+   "best_known_max": "521203175",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "521203175",
+   "c_den": "2147483648",
+   "c_float": 0.2427041414193809,
+   "dfx_floor_float": 0.13994993409141898
+  },
+  {
+   "n": 32,
+   "best_known_max": "1040311347",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "1040311347",
+   "c_den": "4294967296",
+   "c_float": 0.24221636052243412,
+   "dfx_floor_float": 0.13994993409141898
+  },
+  {
+   "n": 33,
+   "best_known_max": "2076449993",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "2076449993",
+   "c_den": "8589934592",
+   "c_float": 0.24173059419263154,
+   "dfx_floor_float": 0.13583375955931842
+  },
+  {
+   "n": 34,
+   "best_known_max": "4144588885",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "4144588885",
+   "c_den": "17179869184",
+   "c_float": 0.24124682444380596,
+   "dfx_floor_float": 0.13583375955931842
+  },
+  {
+   "n": 35,
+   "best_known_max": "8272623576",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "1034077947",
+   "c_den": "4294967296",
+   "c_float": 0.24076503398828208,
+   "dfx_floor_float": 0.13206059957155958
+  },
+  {
+   "n": 36,
+   "best_known_max": "16512273616",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "1032017101",
+   "c_den": "4294967296",
+   "c_float": 0.24028520588763058,
+   "dfx_floor_float": 0.13206059957155958
+  },
+  {
+   "n": 37,
+   "best_known_max": "32958867580",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "8239716895",
+   "c_den": "34359738368",
+   "c_float": 0.23980732352356426,
+   "dfx_floor_float": 0.1285853206354659
+  },
+  {
+   "n": 38,
+   "best_known_max": "65852055508",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "16463013877",
+   "c_den": "68719476736",
+   "c_float": 0.2395683823415311,
+   "dfx_floor_float": 0.1285853206354659
+  },
+  {
+   "n": 39,
+   "best_known_max": "131573282068",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "32893320517",
+   "c_den": "137438953472",
+   "c_float": 0.23933040587144205,
+   "dfx_floor_float": 0.12537068761957926
+  },
+  {
+   "n": 40,
+   "best_known_max": "262885436596",
+   "kind": "upper_bound",
+   "source": "Conway\u2013Guy u(n) (calibrated generator; sum-distinct by Bohman 1996)",
+   "c_num": "65721359149",
+   "c_den": "274877906944",
+   "c_float": 0.23909291175732506,
+   "dfx_floor_float": 0.12537068761957926
+  }
+ ],
+ "bohman_rail": 0.22002,
+ "overflow_receipt_n67_max": "34808838084768972989"
+}

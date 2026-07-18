@@ -1,0 +1,23 @@
+# Drop-in pre-steps for OpenWiki's scheduled update workflow (their
+# examples/openwiki-update.yml): rebuild the corpus orientation graph and emit the
+# OKF digest pages BEFORE `openwiki code --update --print` runs, so the synthesis
+# agent reads current, deterministic state (P5 Layer A).
+#
+# Insert these steps ahead of the openwiki update step; the wiki subtree written by
+# emit_okf must be declared externally generated in openwiki/INSTRUCTIONS.md.
+
+      - name: Rebuild corpus orientation graph
+        run: ./rag rebuild
+
+      - name: Emit OKF digest pages (brief, monitors, drift, captures)
+        run: python3 adapters/openwiki/emit_okf.py --out wiki/corpus-orienteer
+
+      - name: Fail loudly on unmet HIGH monitors (optional gate)
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          mons = json.load(open("data/rag/monitors.json"))["monitors"]
+          bad = [m for m in mons if m["state"] == "unmet" and m.get("severity") == "HIGH"]
+          for m in bad: print(f"UNMET HIGH monitor: {m['id']} — {m['evidence']}")
+          sys.exit(1 if bad else 0)
+          PY

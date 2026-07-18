@@ -1,0 +1,112 @@
+{
+ "entity_families": [
+  {
+   "pattern": "\\bVR-(\\d+)\\b",
+   "template": "VR-{1}"
+  },
+  {
+   "pattern": "\\bAUDIT-(\\d+)\\b",
+   "template": "AUDIT-{1}"
+  },
+  {
+   "pattern": "\\b(C_\\d)\\b",
+   "template": "{1}"
+  },
+  {
+   "pattern": "\\b(OBS_[A-Z])\\b",
+   "template": "{1}"
+  }
+ ],
+ "supersession_patterns": [
+  {
+   "pattern": "\\[CORRECTED\\s+(?:by\\s+)?VR-(\\d+)\\]",
+   "relation": "corrected_by"
+  },
+  {
+   "pattern": "\\bcorrects?\\s+VR-(\\d+)\\b",
+   "relation": "corrects"
+  },
+  {
+   "pattern": "\\bretracts?\\s+VR-(\\d+)\\b",
+   "relation": "retracts"
+  },
+  {
+   "pattern": "\\bsupersedes?\\s+VR-(\\d+)\\b",
+   "relation": "supersedes"
+  },
+  {
+   "pattern": "\\breferences\\s+VR-(\\d+)\\b",
+   "relation": "references"
+  }
+ ],
+ "reference_relations": [
+  "references"
+ ],
+ "correction_relations": [
+  "corrects",
+  "corrected_by",
+  "retracts",
+  "supersedes"
+ ],
+ "quantities": [
+  {
+   "name": "period",
+   "value_pattern": "(period)\\s*=\\s*(\\d+)",
+   "key_group": null,
+   "key_literal": "period",
+   "val_group": 2,
+   "bound": [
+    1,
+    10000
+   ]
+  },
+  {
+   "name": "magnitude",
+   "value_pattern": "(magnitude)\\s*=\\s*(\\d+)",
+   "key_group": null,
+   "key_literal": "magnitude",
+   "val_group": 2,
+   "bound": [
+    0,
+    30
+   ]
+  }
+ ],
+ "type_schema": {
+  "vr_ref": {
+   "display": "VR cross-reference",
+   "match": "VR-\\d+",
+   "valid": "VR-\\d+"
+  },
+  "audit_ref": {
+   "display": "AUDIT cross-reference",
+   "match": "AUDIT-\\d+",
+   "valid": "AUDIT-\\d+"
+  },
+  "comet": {
+   "display": "comet",
+   "match": "C_\\d",
+   "valid": "C_\\d"
+  },
+  "observatory": {
+   "display": "observatory",
+   "match": "OBS_[A-Z]",
+   "valid": "OBS_[A-Z]"
+  },
+  "parameter": {
+   "display": "tracked quantity",
+   "match": "(?:period|magnitude)(?:=\\d+)?",
+   "valid": "(?:period|magnitude)(?:=\\d+)?"
+  }
+ },
+ "drift_value_patterns": {
+  "period": "period\\b[^.\\n]{0,40}?[=:]\\s*(\\d+)",
+  "magnitude": "magnitude\\b[^.\\n]{0,40}?[=:]\\s*(\\d+)"
+ },
+ "method_indicators": [
+  {
+   "pattern": "\\bperiod-fit pipeline\\b",
+   "id": "period_fit"
+  }
+ ]
+}

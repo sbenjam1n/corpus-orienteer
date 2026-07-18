@@ -1,0 +1,48 @@
+name: tests
+
+# Engine invariants: the unit suite (detector controls frozen as tests) + the
+# fixture-corpus end-to-end run, which includes the byte-determinism assert.
+# Stdlib-only, runs in seconds. The demo corpus gets its own conformance job:
+# the engine must index the live corpus/ with zero errors under ragconfig.json,
+# and a second rebuild must be byte-identical (the determinism invariant holds
+# on the live corpus, not just the fixture).
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Unit + fixture end-to-end suite
+        run: python -m unittest discover -s scripts/rag/tests -v
+      - name: Demo arm tests (golden values + guards)
+        run: python -m unittest discover -s tests -v
+
+  corpus-conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Corpus conforms + full pipeline builds
+        run: |
+          ./rag rebuild
+          ./rag query stats
+      - name: Determinism — repeat builds are byte-identical
+        # The first-ever build has no file_meta_prev snapshot, so the brief's
+        # changed-since-last-pass section legitimately differs between build 1
+        # and build 2. The invariant is over steady-state rebuilds: prime once
+        # (the conformance step above), then two further builds must match.
+        run: |
+          ./rag rebuild
+          find data/rag -type f | sort | xargs sha256sum > /tmp/build1.sha
+          ./rag rebuild
+          find data/rag -type f | sort | xargs sha256sum > /tmp/build2.sha
+          diff /tmp/build1.sha /tmp/build2.sha

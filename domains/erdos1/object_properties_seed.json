@@ -1,0 +1,116 @@
+{
+ "properties": [
+  {
+   "subject": "a8",
+   "prop": "value",
+   "value": "84",
+   "vr_id": "VR-3",
+   "stratum": "verified",
+   "source": "Lunnon 1988; exhaustive reproduction VR-3 \u00a72"
+  },
+  {
+   "subject": "a9",
+   "prop": "value",
+   "value": "161",
+   "vr_id": "VR-4",
+   "stratum": "verified",
+   "source": "own exhaustive re-derivation (gate n=9, 35 rungs, 16.23B nodes, VR-4 \u00a74); previously Grossman via VR-2/VR-3"
+  },
+  {
+   "subject": "a10",
+   "prop": "value",
+   "value": "309",
+   "vr_id": "VR-2",
+   "stratum": "verified",
+   "source": "Dyson Oct 2025 (OEIS A276661, published code); CG-10 witness verified VR-3 \u00a73"
+  },
+  {
+   "subject": "a11",
+   "prop": "lower",
+   "value": "462",
+   "vr_id": "VR-2",
+   "stratum": "open",
+   "source": "DFX binom(11,5) (arXiv:2006.12988)"
+  },
+  {
+   "subject": "a11",
+   "prop": "upper",
+   "value": "594",
+   "vr_id": "VR-2",
+   "stratum": "open",
+   "source": "CG-11 witness (u(11)=594), verified VR-3 \u00a73"
+  },
+  {
+   "subject": "a12",
+   "prop": "upper",
+   "value": "1157",
+   "vr_id": "VR-5",
+   "stratum": "verified",
+   "source": "OEIS-posted set (Popov/Branicky 2025-11..2026-01) certificate-verified in VR-5 \u00a72; optimality open"
+  },
+  {
+   "subject": "a12",
+   "prop": "lower",
+   "value": "924",
+   "vr_id": "VR-2",
+   "stratum": "open",
+   "source": "DFX binom(12,6)"
+  },
+  {
+   "subject": "a13",
+   "prop": "upper",
+   "value": "2249",
+   "vr_id": "VR-5",
+   "stratum": "verified",
+   "source": "OEIS-posted set (Popov/Branicky 2025-11..2026-01) certificate-verified in VR-5 \u00a72; optimality open"
+  },
+  {
+   "subject": "a13",
+   "prop": "lower",
+   "value": "1716",
+   "vr_id": "VR-2",
+   "stratum": "open",
+   "source": "DFX binom(13,6)"
+  },
+  {
+   "subject": "A005318",
+   "prop": "u12_value",
+   "value": "1164",
+   "vr_id": "VR-2",
+   "stratum": "verified",
+   "source": "OEIS A005318; generator calibration VR-3 \u00a71"
+  },
+  {
+   "subject": "A005318",
+   "prop": "u13_value",
+   "value": "2284",
+   "vr_id": "VR-2",
+   "stratum": "verified",
+   "source": "OEIS A005318; generator calibration VR-3 \u00a71"
+  },
+  {
+   "subject": "cg_family",
+   "prop": "sum_distinct",
+   "value": "all n (theorem)",
+   "vr_id": "VR-1",
+   "stratum": "proved",
+   "source": "Bohman 1996; certificates only reach n<=30 (VR-3 \u00a74)"
+  },
+  {
+   "subject": "cg_family",
+   "prop": "optimal_at",
+   "value": "n<=10 only",
+   "vr_id": "VR-2",
+   "stratum": "verified",
+   "source": "beaten at n=12 (1157<1164) and n=13 (2249<2284), VR-2 \u00a73"
+  },
+  {
+   "subject": "erdos1",
+   "prop": "status",
+   "value": "open",
+   "vr_id": "VR-1",
+   "stratum": "open",
+   "source": "erdosproblems.com/1 fetched 2026-07-16; adversarial still-open sweep VR-2 \u00a75"
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "arm": "records_perturb",
+ "delta_max": 4,
+ "shift_max": 3,
+ "rows": [
+  {
+   "n": 14,
+   "cg_max": 4484,
+   "candidates_tried": 224,
+   "improvements": []
+  },
+  {
+   "n": 15,
+   "cg_max": 8807,
+   "candidates_tried": 240,
+   "improvements": []
+  },
+  {
+   "n": 16,
+   "cg_max": 17305,
+   "candidates_tried": 256,
+   "improvements": []
+  },
+  {
+   "n": 17,
+   "cg_max": 34301,
+   "candidates_tried": 272,
+   "improvements": []
+  },
+  {
+   "n": 18,
+   "cg_max": 68008,
+   "candidates_tried": 288,
+   "improvements": []
+  }
+ ]
+}
