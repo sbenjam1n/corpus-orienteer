@@ -57,6 +57,12 @@ Three layers, cheapest first:
    cp adapters/openwiki/SKILL.md ~/.openwiki/skills/corpus-orienteer/SKILL.md
    ```
 
+   Compatibility note (verified on OpenWiki v0.2.2, 2026-07-22): newer OpenWiki
+   versions require YAML frontmatter (`name` + `description`) on skill files and
+   skip skills without it (`Skipping …/SKILL.md: no valid YAML frontmatter found`).
+   The bundled `SKILL.md` now carries that frontmatter; if you maintain a local
+   copy from an earlier checkout, re-copy it or prepend the frontmatter block.
+
 ## Layer B — read-only stdio MCP server (small engine-side addition)
 
 `mcp_server.py` (this directory) wraps the query CLI as a read-only MCP server over

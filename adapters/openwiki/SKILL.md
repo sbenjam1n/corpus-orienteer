@@ -1,3 +1,8 @@
+---
+name: corpus-orienteer
+description: Deterministic corpus-orientation engine integration — read the emitted brief/monitors/drift digests first and route the engine findings into canonical wiki pages when updating from a corpus-orienteer-fed repository.
+---
+
 # corpus-orienteer
 
 Use the deterministic corpus-orientation engine when updating this wiki, and route its
