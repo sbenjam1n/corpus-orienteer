@@ -1,13 +1,13 @@
 ---
 name: program-protocol
-description: "Run a long-lived research program the verified way: append-only VR/RF corpus with independent-context referees, a planner-write-only QUEUE pinning the four protocols, a six-level authority chain, and the corpus-orienteer/OpenWiki audit loop. Use when starting, extending, or reconciling a multi-session verification program (math, audits, experiments), when the user says \"mint a VR\", \"referee this\", \"set up the queue\", \"reconcile the collaborator's work\", or when results need to survive sessions, referees, and collaborators. Invoke to load the operating rules; reference implementation: r14-verify's JC program (JC_QUEUE.md, VR-1088–1106, RF-79–91)."
+description: "Run a long-lived research program the verified way: append-only VR/RF corpus with independent-context referees, a planner-write-only QUEUE pinning the four protocols, a six-level authority chain, and the corpus-orienteer/OpenWiki audit loop. Use when starting, extending, or reconciling a multi-session verification program (math, audits, experiments), when the user says \"mint a VR\", \"referee this\", \"set up the queue\", \"reconcile the collaborator's work\", or when results need to survive sessions, referees, and collaborators. Invoke to load the operating rules."
 ---
 
 # program-protocol
 
 The shape: QUEUE → plan → script → VR → independent RF → fold → index row → rebuild.
 
-**QUEUE** (`*_QUEUE.md`, planner-write-only; agents read, propose changes via VR open-work
+**QUEUE** (`*_QUEUE.md`, planner-write-only; agents read, propose changes via VR (Verification Ready) open-work
 items). It pins four protocols at §0, in this order:
 
 1. **Index registry** — the related indexes in authority order; highest version-numbered
