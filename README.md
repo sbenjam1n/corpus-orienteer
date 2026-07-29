@@ -21,6 +21,7 @@ explicitly rejects. Our build is **byte-deterministic** and CI-asserted, and run
 [The demo program](#the-demo-program) · [Compute arms](#compute-arms) ·
 [Corpus tiers](#corpus-tiers-heterogeneous-document-populations) ·
 [OpenWiki integration](#langchain--openwiki-brains-integration) ·
+[Dreams](#dreams-the-divergent-audit-channel) ·
 [Porting](#porting-the-engine-to-your-program) · [Repository map](#repository-map) ·
 [Testing & CI](#testing--ci)
 
@@ -181,6 +182,55 @@ with the orientation in place; the agent's docs correctly state
 correction arcs.. The frozen output + writeup is in `adapters/openwiki/capture_example/` (see `CAPTURE.md`). Full design:
 `adapters/openwiki/README.md`; plan: `plans/P5_openwiki_brain.md`.
 
+## Dreams: the divergent audit channel
+
+Everything above reduces entropy — dedupe, supersession, drift, monitors, coverage. The
+**dreams channel** (`correspondence/dreams/`) is the engine's divergent counterpart: a
+structured way to hand ONE scope's oriented state (a queue, or a VR range) to a **fresh
+higher-model context** and ask for what the verification loop structurally cannot
+produce — analogies from outside the corpus, attacks on the frame rather than the claims,
+and precise questions the program cannot currently pose. A dream is *correspondence with
+a model*: **idea-weight only, verification-weight zero**, never cited as authority,
+entering a corpus only through a reconciliation document that captures the response
+immutable, three-way-splits every item (dream's claim / our verification / our
+inference), and re-verifies independently at an explicit grade — **import the
+verification, never the dream.**
+
+What makes this an *auditing mechanism* rather than brainstorming is that every input is
+a deterministic artifact and every pipeline step is a checked invariant:
+
+| Step | Guarantee |
+|---|---|
+| Numbering | DREAM-N re-validated on disk (in/ ∪ out/), never trusted from memory |
+| Internal vocabulary | index freshness confirmed by **measurement** (corpus files vs build), rebuilt only when actually stale |
+| External vocabulary | the **mandated staleness check**: the scope's newest material (VR dates, index versions) vs the seed entries' `curated` dates — an arc newer than the last curation means the dream session curates *before* sweeping; it never assumes the planner did |
+| Artifacts | `./rag clusters` sweep + `./rag orient` + the pinned cluster plan + the **instrument slice** (scope-filtered drift/coverage — the program's self-model doubt; whole-program tables are deliberately excluded so the packet cannot anchor the dream to the corpus's center of mass) |
+| Brief | 3–7 questions, each naming its source row (ABSENT/ADJACENT-ONLY sweep rows, instrument rows, unmet monitors, open-work items); known instrument caveats stated in-packet, honestly |
+| Freeze | PACKET.md written **last** = the freeze event; packet id = sha256 over the sorted attachment digests; committed before handoff, so "what the dreamer saw" is a git fact |
+| Handoff | the restricted **`dreamer` agent type** (Read/Write only — no shell, no search) + the standing wrapper `correspondence/dreams/PROMPT.md` passed verbatim with slots filled; output budget at the class maximum, a dream is never truncated |
+| Landing | contract check — exactly one file, provenance header quoting the packet sha, **ambient-context disclosure** — then an anti-rot row in the scope's queue (or its RESUME file where the queue is planner-write-only): an unqueued dream is the rot state |
+
+Invocation is the `/dreams` skill (`.claude/skills/dreams/`), e.g. `/dreams <queue> VR-A–B`.
+Two run modes: a **fresh-packet dream** (new artifacts at current HEAD — the default) and
+a **byte-identical replay** (same packet id by construction, isolating one wrapper or
+dreamer change as the only variable — the A/B mode; one sample per arm is directional
+evidence, never a conclusion).
+
+Enforcement is mechanical where it can be and measured where it cannot. The dream-fence
+hook (`.claude/hooks/dream_fence.py`) makes in/ **write-once** and out/ **frozen at
+handoff** — identity-free invariants, correct for every caller, calibrated at both poles
+before arming. The wrapper enforces a tagged epistemic register ([ANALOGY] [SPECULATION]
+[QUESTION] [CONTRARIAN] [⚠MEMORY] [SCOPE-GUESS] [ALMOST-CERTAINLY-WRONG]) plus a
+mandatory steelmanned "Where this embarrasses you" section, which is what makes
+reconciliation mechanical downstream. And the isolation claim is measured, not assumed: a
+live probe showed a custom agent type does **not** remove harness-injected ambient
+context, so in-session isolation is *disclosure-mitigated rather than closed* — in the
+first hardened run the dreamer disclosed its ambient context in full and quarantined the
+one scope-relevant leaked fact instead of using it. Channel rules, hardening state, and
+the wrapper: [`correspondence/dreams/README.md`](correspondence/dreams/README.md) +
+`PROMPT.md`. Reference deployment with live dreams (DREAM-0 through DREAM-3): the
+r14-verify program this engine grew in.
+
 ## Porting the engine to another program
 
 The engine/domain split is the point: write `domains/<yours>/` (one `domain_config.json`
@@ -226,6 +276,10 @@ plans/                     P1..P7 execution plans (edit protocol + claims regist
 arms/                      compute arms (see Compute arms)
 results/                   compute artifacts (ledgers, JSON, SVG)
 adapters/openwiki/         the OpenWiki integration (3 layers + live capture example)
+correspondence/dreams/     the dreams channel (standing wrapper PROMPT.md + channel README;
+                           out/ = frozen packets, in/ = landed responses)
+.claude/                   deployment surface: skills (/dreams, /orient-scope), the
+                           restricted dreamer agent type, the dream-fence hook + settings
 docs/                      corpus contract + design docs + design history
 .github/workflows/         rag-tests.yml (engine + arm + conformance + determinism CI)
 data/rag/                  build outputs (gitignored; regenerated by ./rag rebuild)
