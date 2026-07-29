@@ -16,10 +16,14 @@ independently at an explicit grade — import the verification, never the dream.
 1. INTERNAL (derived — self-updates): `bash scripts/rag/rebuild.sh`, then
    `python3 scripts/rag/clusters.py <scope> --out <slug> [--seed-scope <name>]`. A thin or
    jargon-dominated derived list on new vocabulary = extractor lag, not absence.
-2. EXTERNAL (seeded — updates by curation): extend `scripts/rag/cluster_seed.json` for the
-   scope — CORPUS-tag corpus-present-but-unextracted terms (the stopgap pattern),
-   MEMORY-tag genuinely-external neighborhood; set the curated date. The seed is committed;
-   this is the durable half of "vocabulary is updated."
+2. EXTERNAL (seeded — updates by curation): FIRST check staleness — compare the scope's
+   newest material (VR dates, index versions) against the scope's seed entries' `curated`
+   dates. An arc newer than the last curation means the planner hasn't refreshed: YOU
+   curate now, before sweeping (the DREAM-1 annular-cluster precedent). Extend
+   `scripts/rag/cluster_seed.json` for the scope — CORPUS-tag corpus-present-but-
+   unextracted terms (the stopgap pattern), MEMORY-tag genuinely-external neighborhood;
+   set the curated date. The seed is committed (smoke gate applies); this is the durable
+   half of "vocabulary is updated."
 3. Re-sweep. The **ABSENT and ADJACENT-ONLY rows are the dream seeds**: what the corpus
    has not internalized is exactly what the dreamer should roam.
 
