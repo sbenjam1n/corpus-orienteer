@@ -6,3 +6,6 @@ __pycache__/
 chroma_db/
 model/
 wiki/corpus-orienteer/
+# dream-fence runtime artifacts (schema log + operator escape hatch)
+.claude/hooks/fence_log.jsonl
+.claude/hooks/fence_override

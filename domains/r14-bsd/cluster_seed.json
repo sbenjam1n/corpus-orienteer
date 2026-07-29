@@ -11,6 +11,14 @@
     },
     {
       "scope": "jc",
+      "head": "JC annular / shape-class arc",
+      "terms": ["annular stratum", "shape class", "winding", "corner cascade", "rebound", "seed valuation", "period tower", "mirror stratum", "degeneracy test", "parity theorem", "second kind", "Two-Ended Corner Principle", "Gwozdziewicz", "Residue Conjecture", "Bodin", "blind-spot class"],
+      "provenance": "CORPUS",
+      "curated": "2026-07-29",
+      "note": "Vocabulary refresh for DREAM-1: the annular/shape-class line (jc2d_shape_annular_index v1.8+, VR-1126–1144) postdates the 2026-07-29 jc seed entries; terms grounded in the v1.26 index §5 SA-O* register + VR titles. Same extractor-lag stopgap as the sibling entries."
+    },
+    {
+      "scope": "jc",
       "head": "JC geometry / strata / engines",
       "terms": ["Jelonek set", "monodromy census", "triangular stratum", "cusp stratification", "Brieskorn", "Pinchuk", "etale signature", "ghost loophole", "affine-in-fiber", "char-p center", "Los engine", "DC1 fork", "equivariance", "pathtrack"],
       "provenance": "CORPUS",
