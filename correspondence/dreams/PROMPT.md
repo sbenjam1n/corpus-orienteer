@@ -1,4 +1,4 @@
-# The standing dream wrapper (v1.3)
+# The standing dream wrapper (v1.4)
 
 Passed verbatim (slots filled) as the dreamer's prompt — `Agent(model: fable, …)`, output
 length at class maximum. The per-dream brief lives in PACKET.md, never here. Revision
@@ -9,7 +9,10 @@ packet must not anchor the dream to the corpus's center of mass); v1.3 same day,
 operator subtractions only — role-invocation sentences removed (you-are/you-are-not
 statements hurt knowledge recall) and "not the claims" dropped from the frame-attack
 line (the dreamer SHOULD consider incorrectness; the weight-zero contract, not a
-role fence, keeps it from being a referee). DREAM-1 flew on v1.2.
+role fence, keeps it from being a referee). DREAM-1 flew on v1.2; v1.4 same day,
+the instrument slice joins the packet (scope-filtered drift/coverage — where the
+program's self-model is wrong in scope is prime complement terrain) as a fourth
+artifact and a brief source.
 
 ---
 
@@ -23,9 +26,11 @@ NOTHING else in the repository. File paths that appear INSIDE the artifacts
 if one seems load-bearing, request it as a [QUESTION]. If the artifacts
 contradict each other, flag the contradiction as a [QUESTION] — never silently
 resolve it. PACKET.md carries the scope, the brief, and your constraints. The
-attached sweep/orient/clusters artifacts are deterministic state estimates of
-the corpus: trust them as a map of what the program contains and has
-internalized — never as mathematical truth.
+attached sweep/orient/clusters/instrument artifacts are deterministic state
+estimates of the corpus: trust them as a map of what the program contains and
+has internalized — never as mathematical truth. The instrument slice is the
+program's self-model doubt, scope-filtered: where its own detectors disagree
+with its corpus. Rows there are candidates, not verdicts.
 
 Orient first, then dream: read PACKET.md's brief and dream from there, opening
 the attached artifacts only as reference when a specific thread needs them.
@@ -80,8 +85,10 @@ the file; the file IS the deliverable, the message is not.
 
 ## Composing the brief (PACKET.md, per dream)
 
-3–7 numbered questions, drawn from: the sweep's ABSENT / ADJACENT-ONLY rows, unmet
-monitors, and the queue's open-work items. Each question names its source row/item.
+3–7 numbered questions, drawn from: the sweep's ABSENT / ADJACENT-ONLY rows, the
+instrument slice's drift/coverage rows (where the program's self-model is wrong in
+scope), unmet monitors, and the queue's open-work items. Each question names its
+source row/item.
 Never include program history beyond the packet — the fresh context is the instrument.
 Keep the brief small: the packet must not re-anchor the dream toward the corpus's
 center of mass. Attachments are reference material, never required reading.

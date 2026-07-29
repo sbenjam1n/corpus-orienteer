@@ -27,7 +27,9 @@ bash tests/rag_smoke.sh                    # gate: index + OKF pages valid befor
    for ontology-reconcile.
 3. **HARDER** — same invocation emits `data/rag/sweep_<slug>.md`: per-term literal hits
    (case/dash/accent-folded, word-bounded, exact counts) + TF-IDF adjacency (retracted
-   down-weighted; stdlib tier PINNED for claims). Literal-vs-adjacency stays split:
+   down-weighted; stdlib tier PINNED for claims), plus `instrument_<slug>.md` — the
+   scope-filtered drift/coverage slice (self-model doubt in scope; rows are candidates,
+   never verdicts). Literal-vs-adjacency stays split:
    0 literal ≠ absent — read the ADJACENT-ONLY rows; adjacency ≠ presence.
 4. **ORIENT** — `orient.py <scope> --out <slug>` → `data/rag/orient_<slug>.md`: corrected/
    superseded citations, stale-assertion candidates, method reliability, in-scope monitors, arcs.

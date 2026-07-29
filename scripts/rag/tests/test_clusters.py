@@ -52,5 +52,31 @@ class TestTermRx(unittest.TestCase):
         self.assertIsNotNone(rx.search(clusters.fold("relative Manin–Mumford problem")))
 
 
+class TestInstrumentSlice(unittest.TestCase):
+    DRIFT = {"flags": [{"object": "E", "prop": "rank", "seed": 0, "corpus": 1},
+                       {"object": "X_far", "prop": "deg", "seed": 2, "corpus": 3}]}
+    COV = {"alias_drift": [{"object": "E", "seed_primary": "E", "recent_dominant": "64a1"},
+                           {"object": "X_far", "seed_primary": "X", "recent_dominant": "Y"}],
+           "uncaptured_tokens": [
+               {"token": "jelonek_set", "vrs": 9, "examples": ["VR-1098"]},
+               {"token": "elsewhere_token", "vrs": 5, "examples": ["VR-7"]}],
+           "unseeded_objects": [{"entity": "K_new", "type": "field", "mentions": 4},
+                                {"entity": "Z_absent", "type": "field", "mentions": 2}]}
+
+    def test_filters_to_scope(self):
+        sl = clusters.instrument_slice(
+            touched_ids={"E"}, scope_ids={"VR-1098"},
+            scope_folded=clusters.fold("the K_new field and jelonek_set appear here"),
+            drift=self.DRIFT, coverage=self.COV)
+        self.assertEqual([f["object"] for f in sl["drift_flags"]], ["E"])
+        self.assertEqual([a["object"] for a in sl["alias_drift"]], ["E"])
+        self.assertEqual([t["token"] for t in sl["uncaptured_tokens"]], ["jelonek_set"])
+        self.assertEqual([o["entity"] for o in sl["unseeded_objects"]], ["K_new"])
+
+    def test_empty_scope_yields_empty_sections(self):
+        sl = clusters.instrument_slice(set(), set(), "", self.DRIFT, self.COV)
+        self.assertTrue(all(v == [] for v in sl.values()))
+
+
 if __name__ == "__main__":
     unittest.main()

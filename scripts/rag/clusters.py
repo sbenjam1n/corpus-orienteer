@@ -165,6 +165,60 @@ def select_seed(slug, seed_scope):
     return [c for c in seed.get("clusters", []) if c.get("scope") in want]
 
 # --------------------------------------------------------------------------
+# Instrument slice — scope-filtered drift/coverage (the 4th dream attachment)
+# --------------------------------------------------------------------------
+
+def instrument_slice(touched_ids, scope_ids, scope_folded, drift, coverage):
+    """Scope-filter the program's self-model doubt: drift flags on touched objects,
+    coverage candidates visible from the scope. Pure function (testable); returns
+    {section: rows}. Where the program's instruments disagree with its corpus is
+    prime dream terrain — but only the SCOPE's slice, never the whole-program
+    tables (center-of-mass anchoring; see the dreams README)."""
+    out = {}
+    out["drift_flags"] = [f for f in drift.get("flags", [])
+                          if f.get("object") in touched_ids]
+    out["alias_drift"] = [a for a in coverage.get("alias_drift", [])
+                          if a.get("object") in touched_ids]
+    out["uncaptured_tokens"] = [t for t in coverage.get("uncaptured_tokens", [])
+                                if set(t.get("examples", [])) & scope_ids
+                                or term_rx(t.get("token", "\x00")).search(scope_folded)]
+    out["unseeded_objects"] = [o for o in coverage.get("unseeded_objects", [])
+                               if o.get("entity") and fold(o["entity"]) in scope_folded]
+    return out
+
+def write_instrument(slug, sl, drift, coverage):
+    L = [f"# Instrument slice — {slug}", "",
+         f"Scope-filtered drift/coverage (whole-program tables deliberately excluded). "
+         f"Index build: {_stamp()} · whole-corpus baseline: drift flags "
+         f"{len(drift.get('flags', []))}, uncaptured tokens "
+         f"{len(coverage.get('uncaptured_tokens', []))}, unseeded objects "
+         f"{len(coverage.get('unseeded_objects', []))}, alias drift "
+         f"{len(coverage.get('alias_drift', []))}.",
+         "Discipline: rows are candidates to READ, never verdicts; an empty section "
+         "means the DETECTOR found nothing in scope — a detector's zero is not a "
+         "certification.", ""]
+    def sec(title, rows, fmt):
+        L.append(f"## {title} ({len(rows)})")
+        L.extend(fmt(r) for r in rows) if rows else L.append("_0 in scope_")
+        L.append("")
+    sec("Seed↔corpus drift flags on touched objects", sl["drift_flags"],
+        lambda f: f"- `{json.dumps(f, ensure_ascii=False)}`")
+    sec("Alias drift on touched objects", sl["alias_drift"],
+        lambda a: f"- **{a.get('object')}**: seed primary `{a.get('seed_primary')}` vs "
+                  f"recent dominant `{a.get('recent_dominant')}` "
+                  f"(resolves: {a.get('resolves')})")
+    sec("Uncaptured tokens visible from scope (candidate new notation)",
+        sl["uncaptured_tokens"],
+        lambda t: f"- `{t.get('token')}` — {t.get('vrs')} VRs, e.g. "
+                  f"{', '.join(t.get('examples', [])[:3])}")
+    sec("Unseeded object-shaped entities in scope text", sl["unseeded_objects"],
+        lambda o: f"- `{o.get('entity')}` [{o.get('type')}] — "
+                  f"{o.get('mentions')} mentions corpus-wide")
+    out = DATA_DIR / f"instrument_{slug}.md"
+    out.write_text("\n".join(L) + "\n")
+    return out
+
+# --------------------------------------------------------------------------
 # Report
 # --------------------------------------------------------------------------
 
@@ -277,7 +331,21 @@ def main(argv=None):
     out = DATA_DIR / f"sweep_{slug}.md"
     out.write_text("\n".join(L) + "\n")
     print("\n".join(L))
-    print(f"\n[clusters: wrote {out.relative_to(ROOT)} + clusters_{slug}.json]")
+
+    # ---- instrument slice (4th dream attachment; degrade gracefully if absent) ----
+    inst_note = ""
+    try:
+        drift = json.loads((DATA_DIR / "object_drift.json").read_text())
+        coverage = json.loads((DATA_DIR / "coverage_report.json").read_text())
+        touched_ids = {o["id"] for o, _n in touched}
+        scope_folded = fold("\n".join(t for _l, t in inputs))
+        sl = instrument_slice(touched_ids, scope_ids, scope_folded, drift, coverage)
+        ipath = write_instrument(slug, sl, drift, coverage)
+        inst_note = f" + {ipath.name}"
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"[clusters: instrument slice skipped — {e.__class__.__name__}]")
+
+    print(f"\n[clusters: wrote {out.relative_to(ROOT)} + clusters_{slug}.json{inst_note}]")
     return 0
 
 

@@ -28,8 +28,10 @@ off — outbox convention; N = next free across in/ and out/):
 - `PACKET.md` — scope + HEAD sha + generating commands + sha256 of every attachment; the
   dream brief (open questions, drawn from ABSENT/ADJACENT-ONLY rows + unmet monitors +
   the queue's open-work items); the dreamer constraints below, verbatim.
-- Frozen copies of `sweep_<slug>.md`, `orient_<slug>.md`, `clusters_<slug>.json`
-  (byte-deterministic at that HEAD; attached anyway for self-containedness).
+- Frozen copies of `sweep_<slug>.md`, `orient_<slug>.md`, `clusters_<slug>.json`,
+  `instrument_<slug>.md` (the scope-filtered drift/coverage slice — whole-program
+  tables stay excluded: center-of-mass anchoring; all byte-deterministic at that
+  HEAD; attached anyway for self-containedness).
 
 **Handoff.** A FRESH context, higher model class — `Agent(subagent_type: dreamer)`, the
 restricted agent type (Read/Write only, no shell/search; model fable; context-hygiene
