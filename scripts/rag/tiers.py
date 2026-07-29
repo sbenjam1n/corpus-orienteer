@@ -50,6 +50,20 @@ def _rel(path):
         return str(p)
 
 
+def _norm_root(r):
+    """Normalize a declared root through the SAME resolution as _rel(path), so the
+    prefix comparison is symmetric. Asymmetry bug: contract_vr_roots resolves roots
+    for discovery, but tier_of compared them raw — on macOS an absolute tmp root
+    (/var/…, a symlink of /private/var/…) then matched no resolved doc path, so a
+    doc discovered via a tier root was stamped by the wrong tier."""
+    p = Path(r.rstrip("/"))
+    p = (p if p.is_absolute() else ROOT / p).resolve()
+    try:
+        return str(p.relative_to(ROOT))
+    except ValueError:
+        return str(p)
+
+
 def tier_of(path, tiers):
     """The declared tier owning `path` (longest-matching root wins), or None."""
     if not tiers:
@@ -58,7 +72,7 @@ def tier_of(path, tiers):
     best, best_len = None, -1
     for t in tiers:
         for r in t.get("roots", []):
-            rr = r.rstrip("/")
+            rr = _norm_root(r)
             if (rel == rr or rel.startswith(rr + "/")) and len(rr) > best_len:
                 best, best_len = t, len(rr)
     return best

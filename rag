@@ -56,7 +56,11 @@ case "$cmd" in
     monitors)         python3 scripts/rag/query.py monitors "$@" ;;
     viz)              python3 scripts/rag/query.py viz "$@" ;;
     record-session)   python3 scripts/rag/record_session.py "$@" ;;
-    test)             python3 -m unittest discover -s scripts/rag/tests "$@" ;;
+    # test runs HERMETIC: the deployment's RAG_* exports must not leak into a suite
+    # whose tests assume fixture/default config (they crashed dict(**environ, K=…)
+    # and silently redirected in-process module config to the live domain).
+    test)             env -u RAG_CORPUS_DIR -u RAG_SEED_DIR -u RAG_DATA_DIR \
+                          python3 -m unittest discover -s scripts/rag/tests "$@" ;;
     doctor)           python3 scripts/rag/index_vrs.py && python3 scripts/rag/query.py stats ;;
     config)           echo "RAG_CORPUS_DIR=$RAG_CORPUS_DIR"
                       echo "RAG_SEED_DIR=$RAG_SEED_DIR"

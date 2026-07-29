@@ -294,7 +294,9 @@ class TestCorpusTiersM1(unittest.TestCase):
                      "indexed": False, "authority": 0},
                 ]}))
             data = tmp / "data"
-            env = dict(**__import__("os").environ,
+            # positional-mapping form: kwargs OVERRIDE inherited keys instead of
+            # raising TypeError when RAG_* is already exported (./rag always exports)
+            env = dict(__import__("os").environ,
                        RAG_CORPUS_DIR=str(corpus), RAG_SEED_DIR=str(seeds),
                        RAG_DATA_DIR=str(data))
             r = subprocess.run([_sys.executable, str(rag / "index_vrs.py")],
