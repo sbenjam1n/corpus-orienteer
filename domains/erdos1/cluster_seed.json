@@ -1,0 +1,4 @@
+{
+  "_doc": "EXTERNAL cluster seed for clusters.py (scope-oriented sweeps). Pins the out-of-corpus half of a cluster harvest: vocabulary a corpus sweep CANNOT derive (0-hit neighborhoods) is curated ONCE here — the canonical_objects gather+validate precedent — then every sweep re-run is deterministic against the pinned list. provenance tags the CURATION origin (MEMORY = model-knowledge framing, CORPUS = corpus-present but missed by the extractors — the stopgap pattern); current corpus truth is re-measured by every sweep, never assumed from the tag. Entries are selected by scope match (--seed-scope, else the --out slug); scope 'global' always applies. Internal vocabulary is NOT seeded here — clusters.py derives it from concepts.json + touched objects on every run. This domain has no curated clusters yet; entry shape: {scope, head, terms[], provenance, curated, note}.",
+  "clusters": []
+}

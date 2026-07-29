@@ -98,6 +98,7 @@ domain-agnostic; the **domain** is `domain_config.json` + the seeds (§8).
 | `reconcile_workflow.js` | via the Workflow tool, `{scriptPath: "scripts/rag/reconcile_workflow.js"}` | coverage_report + corpus | a gated proposal (stdout) |
 | `synthesize_brief.py` | `python3 scripts/rag/synthesize_brief.py` | arcs, method_registry, monitors, object_drift, file_meta(+prev) | `data/rag/audit_brief.md` (deterministic warm-start digest) |
 | `orient.py` | `python3 scripts/rag/orient.py <plan.md \| VR-N> […] [--out slug]` | the given docs + file_meta, claim_status, supersession, arcs, objects, method_registry, monitors | `data/rag/orient_<slug>.md` (plan-scoped orientation artifact) |
+| `clusters.py` | `python3 scripts/rag/clusters.py <scope docs/ids…> --out <slug> [--seed-scope name] [--dirs …] [--top N]` | scope docs + concepts, objects, file_meta, chunks; `cluster_seed.json` (seed) + domain_config `sweep_dirs` | `data/rag/clusters_<slug>.json` (pinned sweep plan) + `sweep_<slug>.md` (per-term literal/adjacency table — deterministic steps 2–3 of a scope orientation) |
 | `rebuild.sh` | `bash scripts/rag/rebuild.sh [--embed]` | — | orchestrates the five stages; prints a per-stage timing breakdown |
 | `tests/test_rag_engine.py` | `python3 -m unittest discover -s scripts/rag/tests` | — | per-stage regression tests (synthetic fixtures; detector controls frozen as tests) |
 | `tests/determinism_check.sh` | `bash scripts/rag/tests/determinism_check.sh` | — | rebuilds twice; requires byte-identical `data/rag/` outputs + clean `git status` |

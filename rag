@@ -13,6 +13,7 @@
 #   ./rag rebuild [--embed] [--doctest]   full build pipeline (index → ontology → coverage → brief)
 #   ./rag query <mode> [args…]            any query.py mode (search, page, monitors, brief, …)
 #   ./rag orient <doc…> [--out slug]      plan-scoped orientation artifact
+#   ./rag clusters <doc…> --out <slug>    scoped cluster harvest + literal/adjacency sweep
 #   ./rag brief                           warm-start audit brief (alias for query brief)
 #   ./rag grounding                       grounding_check.py
 #   ./rag coverage                        self-coverage audit (alias for query coverage)
@@ -48,6 +49,7 @@ case "$cmd" in
     rebuild)          bash scripts/rag/rebuild.sh "$@" ;;
     query)            python3 scripts/rag/query.py "$@" ;;
     orient)           python3 scripts/rag/orient.py "$@" ;;
+    clusters)         python3 scripts/rag/clusters.py "$@" ;;
     brief)            python3 scripts/rag/query.py brief "$@" ;;
     grounding)        python3 scripts/rag/grounding_check.py "$@" ;;
     coverage)         python3 scripts/rag/query.py coverage "$@" ;;

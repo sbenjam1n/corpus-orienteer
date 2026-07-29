@@ -1,5 +1,11 @@
 {
   "_doc": "DOMAIN VOCABULARY — the porting surface. The engine (index_vrs/ontology/coverage/query) is domain-agnostic; THIS file + the ontology seeds (canonical_objects, object_properties_seed, domain_links_seed, monitors_seed) encode the BSD/arboreal program. To run the audit tool on a different research program, replace this file and the seeds. index_vrs.py loads this if present, else falls back to its embedded defaults. {n} in a template = regex group n.",
+  "sweep_dirs": [
+    "docs",
+    "verification_ready",
+    "papers",
+    "Plans"
+  ],
   "entity_families": [
     {
       "pattern": "\\bVR-(\\d+)\\b",
