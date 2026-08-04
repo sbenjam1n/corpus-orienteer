@@ -45,7 +45,7 @@ def main():
         pass
     try:
         tool = data.get("tool_name", "")
-        if tool not in ("Write", "Edit", "NotebookEdit"):
+        if tool not in ("Read", "Write", "Edit", "NotebookEdit"):
             return 0
         ti = data.get("tool_input", {}) or {}
         p = ti.get("file_path") or ti.get("notebook_path") or ""
@@ -54,6 +54,23 @@ def main():
         path = Path(p)
         if not path.is_absolute():
             path = ROOT / p
+        # R1 — dreamer read-scope (armable only after the identity field was OBSERVED:
+        # agent_type confirmed in the live log 2026-08-04, DREAM-5's Write). The dreamer
+        # reads correspondence/dreams/** only; everything else is fenced. Other agents
+        # and the main session are untouched (fail-open below covers absent field).
+        if data.get("agent_type") == "dreamer":
+            try:
+                rel_r = path.resolve().relative_to(ROOT)
+                in_channel = rel_r.parts[:2] == ("correspondence", "dreams")
+            except ValueError:
+                in_channel = False
+            if not in_channel and not OVERRIDE.exists():
+                print(f"dream-fence R1: the dreamer agent reads the dream channel only "
+                      f"({p} is outside correspondence/dreams/). Request the file as a "
+                      "[QUESTION] in your response instead.", file=sys.stderr)
+                return 2
+        if tool == "Read":
+            return 0  # reads are fenced only for the dreamer (R1 above)
         try:
             rel = path.resolve().relative_to(ROOT)
         except ValueError:
